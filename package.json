@@ -25,7 +25,9 @@
     "docz:deploy": "surge .docz/dist",
     "release": "node ./scripts/release/release.js",
     "jsdoc2docz": "node ./scripts/docs/jsdocs-to-docz.js",
-    "docz:generate:svg": "node scripts/docs/doczSvgSprite.js packages/icons/packages/**/sprite/*.svg .docz/public/sprite.svg"
+    "docz:generate:svg": "node scripts/docs/doczSvgSprite.js packages/icons/packages/**/sprite/*.svg .docz/public/sprite.svg",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
@@ -113,7 +115,8 @@
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react-router-dom": "^5.1.2",
-    "styled-components": "^4.4.0"
+    "styled-components": "^4.4.0",
+    "snyk": "^1.319.1"
   },
   "lint-staged": {
     "(?!test|spec).*\\.js": [
@@ -125,5 +128,6 @@
       "git add --force"
     ]
   },
-  "pre-commit": "lint:staged"
+  "pre-commit": "lint:staged",
+  "snyk": true
 }
